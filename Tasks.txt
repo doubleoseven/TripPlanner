@@ -1,10 +1,10 @@
 Trip Planner tasks:
 
-	•	Classes (Safiullah)
+	•	Classes (Saifullah)
 	•	Linked List (Me)
 	•	Sorting Function (Me)
 	•	4 Forms (Divided)
-	•	Calendar (Safiullah)
+	•	Calendar (Saifullah)
 	•	Adding Students (Undecided)
 	•	Adding Trips (Undecided)
 	•	Adding Teachers (Undecided)
