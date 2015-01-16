@@ -1,3 +1,4 @@
+import java.lang.*;
 
 public class linkedList {
 	private nodeClass head;
@@ -14,7 +15,7 @@ public class linkedList {
 	//The object data can be an instance from the
 	//teacher class or the student class
 	
-	public void add(Object data){
+	public void add(objectsClass data){
 		//The node you want to add
 		nodeClass tempNode = new nodeClass(data);
 		//The current node is set to the head
@@ -33,7 +34,7 @@ public class linkedList {
 		itemsCount++;	
 	}
 	
-	public void add(Object data, int fence)
+	public void add(objectsClass data, int fence)
 	{
 		//The
 		nodeClass tempNode = new nodeClass(data);
@@ -71,7 +72,7 @@ public class linkedList {
 			currentNode = currentNode.getNext();
 		}
 		
-		return currentNode.getData();
+		return currentNode.getName();
 	}
 	
 	public boolean remove(int fence)
@@ -102,10 +103,54 @@ public class linkedList {
 		String output ="";
 		while (currentNode!=null) 
 		{
-			output += "[" + currentNode.getData().toString() + "]";
+			output += "[" + currentNode.getType()+" "+currentNode.getId()+" "+currentNode.getName()+ "]";
 			currentNode = currentNode.getNext();
 		}
 		return output;
+	}
+	
+	public boolean sortList()
+	{
+		//Sort list by name
+		//Current Node = head
+		//if current->next == null
+		//return false;
+		//Look at the beginning of each name
+		//See if there's a function that sorts already
+		//If one is greater than the other (ex a = node b = node and a>b)
+		//and it is b and then a 
+		//b -> next = a.next (which is after b) 
+		//Then a -> next = b 
+		//Need a temp to iterate over the entire line
+		//Need a current to keep the one that you're comparing 
+		// ex current = b temp = a
+		//if a>b 
+		//Then current->next = a->next
+		//And temp ->next = b;
+		//Sorting algorithm:
+		//Compare(String1, String2)
+		//If returns < 0 
+			//String 1 <Sting 2
+		//If return 0
+			//String 1 = String 2
+		//If returns >0 
+			//String 1>String 2
+		nodeClass temp = head.getNext().getNext(); // b
+		nodeClass current = head.getNext(); //a
+		
+		if(current == null) return false;
+		for (int i = 1; i<size(); i++)
+		{
+			if(temp.getName().compareTo(current.getName())<0)
+			{
+				
+			}
+			
+			
+			//(temp.getName(), current.getName());
+		}
+		
+		return true;
 	}
 	
 	
@@ -114,17 +159,17 @@ public class linkedList {
 class nodeClass {
 	
 	nodeClass next;
-	Object data;
+	objectsClass data;
 	
 	//This constructor sets the next node to null 
-	public nodeClass(Object dataValue)
+	public nodeClass(objectsClass dataValue)
 	{
 		next = null;
 		data = dataValue;
 	}
 	
 	//This constructor specifies which node to point to
-	public nodeClass(nodeClass nextNode, Object dataValue)
+	public nodeClass(nodeClass nextNode, objectsClass dataValue)
 	{
 		next = nextNode;
 		data = dataValue;
@@ -132,14 +177,37 @@ class nodeClass {
 	
 	
 	//Setter and Getter Functions
-	public Object getData()
+	public String getType()
 	{
-		return data;
+			return data.getType();
 	}
 	
-	public void setData(Object dataValue)
+	
+	public void setType(String type)
 	{
-		data = dataValue;
+		data.setType(type);
+	}
+	
+	public String getName()
+	{
+			return data.getName();
+	}
+	
+	
+	public void setName(String name)
+	{
+		data.setName(name);
+	}
+	
+	public String getId()
+	{
+			return data.getId();
+	}
+	
+	
+	public void setId(String id)
+	{
+		data.setId(id);
 	}
 	
 	public nodeClass getNext()
